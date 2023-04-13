@@ -195,10 +195,14 @@ class _FormsState extends State<Forms> {
                   Container(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Color.fromRGBO(193, 213, 164, 1),
-                        onPrimary: Color.fromRGBO(52, 45, 35, 65),
-                        minimumSize: Size(170, 40),
-                      ),
+                          primary: Color.fromRGBO(193, 213, 164, 1),
+                          onPrimary: Color.fromRGBO(52, 45, 35, 65),
+                          minimumSize: Size(150, 40),
+                          textStyle: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16.0)),
+                          shape: ContinuousRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
                       onPressed: () {},
                       child: Text("Batal"),
                     ),
@@ -206,10 +210,15 @@ class _FormsState extends State<Forms> {
                   Container(
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: Color.fromRGBO(52, 45, 35, 1),
-                            onPrimary: Color.fromRGBO(193, 213, 164, 1),
-                            minimumSize: Size(170, 40),
-                          ),
+                              primary: Color.fromRGBO(52, 45, 35, 1),
+                              onPrimary: Color.fromRGBO(193, 213, 164, 1),
+                              minimumSize: Size(150, 40),
+                              textStyle: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0)),
+                              shape: ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20))),
                           onPressed: () {},
                           child: Text("Simpan"))),
                 ],
