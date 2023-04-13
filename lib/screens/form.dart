@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class Forms extends StatelessWidget {
-  const Forms({
-    super.key,
-  });
+class Forms extends StatefulWidget {
+  const Forms({super.key});
+
+  @override
+  State<Forms> createState() => _FormsState();
+}
+
+class _FormsState extends State<Forms> {
+  TextEditingController datetimeinput = TextEditingController();
+  @override
+  void initState() {
+    datetimeinput.text = "";
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffE5E5E5),
+      backgroundColor: Color(0xFFD8BC8C),
       appBar: AppBar(
-        title: Text("Data pesanan"),
+        title: Text("Data pesanan Meja"),
       ),
+      // Body
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -22,89 +35,159 @@ class Forms extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
+                  color: Color(0xFFC1D5A4),
                 ),
-                child: TextField(
+                // Nama Pesanan
+                child: TextFormField(
+                  style: GoogleFonts.poppins(
+                      textStyle:
+                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65))),
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
-                      hintText: "Nama Pemesan",
-                      labelText: "Nama pemesan",
+                      hintText: "Nama Pesanan",
+                      labelText: "Nama pesanan",
+                      labelStyle:
+                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
                 ),
               ),
+              // Alamat
               SizedBox(
                 height: 15,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                    ),
-                    child: TextField(
-                      maxLines: 3,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          hintText: "Alamat",
-                          labelText: "Alamat",
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 15)),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          hintText: "No.Handphone",
-                          labelText: "No.Handphone",
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 15)),
-                      keyboardType: TextInputType.number,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                    ),
-                    child: TextField(
-                      maxLines: 3,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          hintText: "Deskripsi",
-                          labelText: "Deskripsi",
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 15)),
-                    ),
-                  ),
-                ],
-              )
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xFFC1D5A4),
+                ),
+                // form alamat
+                child: TextFormField(
+                  style: GoogleFonts.poppins(
+                      textStyle:
+                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65))),
+                  maxLines: 3,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      hintText: "Alamat",
+                      labelText: "Alamat",
+                      labelStyle:
+                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65)),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
+                ),
+              ),
+              // no.hp
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xFFC1D5A4),
+                ),
+                // form no.hp
+                child: TextFormField(
+                  style: GoogleFonts.poppins(
+                      textStyle:
+                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65))),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      hintText: "No.Handphone",
+                      labelText: "No.Handphone",
+                      labelStyle:
+                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65)),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
+                  keyboardType: TextInputType.number,
+                ),
+              ),
+              // deskripsi
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xFFC1D5A4),
+                ),
+                // deskripsi
+                child: TextFormField(
+                  style: GoogleFonts.poppins(
+                      textStyle:
+                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65))),
+                  maxLines: 3,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      hintText: "Deskripsi",
+                      labelText: "Deskripsi",
+                      labelStyle:
+                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65)),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
+                ),
+              ),
+              // tanggal
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xFFC1D5A4),
+                ),
+                // tanggal
+                child: TextFormField(
+                  style: GoogleFonts.poppins(
+                      textStyle:
+                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65))),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                        10,
+                      )),
+                      hintText: "Tanggal",
+                      labelText: "Tanggal",
+                      labelStyle:
+                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65)),
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
+                  controller: datetimeinput,
+                  readOnly: true,
+                  onTap: () async {
+                    DateTime? pickedDate = await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(2020),
+                      lastDate: DateTime(2040),
+                    );
+                    if (pickedDate != null) {
+                      String formatDate =
+                          DateFormat('dd MMMM yyyy').format(pickedDate);
+                      setState(() {
+                        datetimeinput.text = formatDate;
+                      });
+                    } else {
+                      datetimeinput.text = "";
+                    }
+                  },
+                ),
+              ),
+              // Button
+              
+
             ],
           ),
         ),
       ),
     );
   }
-
-  void onChanged(Object? value) {}
 }
