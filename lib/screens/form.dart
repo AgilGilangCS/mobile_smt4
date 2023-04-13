@@ -22,10 +22,14 @@ class _FormsState extends State<Forms> {
     return Scaffold(
       backgroundColor: Color(0xFFD8BC8C),
       appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Color.fromRGBO(52, 45, 35, 1),
         title: Text("Data pesanan Meja"),
+        titleTextStyle:
+            TextStyle(color: Color.fromRGBO(193, 213, 164, 1), fontSize: 18.0),
       ),
       // Body
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           child: Column(
@@ -181,9 +185,35 @@ class _FormsState extends State<Forms> {
                   },
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
               // Button
-              
-
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Color.fromRGBO(193, 213, 164, 1),
+                        onPrimary: Color.fromRGBO(52, 45, 35, 65),
+                        minimumSize: Size(170, 40),
+                      ),
+                      onPressed: () {},
+                      child: Text("Batal"),
+                    ),
+                  ),
+                  Container(
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color.fromRGBO(52, 45, 35, 1),
+                            onPrimary: Color.fromRGBO(193, 213, 164, 1),
+                            minimumSize: Size(170, 40),
+                          ),
+                          onPressed: () {},
+                          child: Text("Simpan"))),
+                ],
+              )
             ],
           ),
         ),
