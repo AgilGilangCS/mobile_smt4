@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_smt4/screens/login.dart';
 import 'screens/form.dart';
 import 'screens/homes.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Keren',
-      home: Forms(),
+      home: Homes(),
     );
   }
 }

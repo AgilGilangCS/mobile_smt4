@@ -22,16 +22,18 @@ class _FormsState extends State<Forms> {
     return Scaffold(
       backgroundColor: Color(0xFFD8BC8C),
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Color.fromRGBO(52, 45, 35, 1),
-        title: Text("Data pesanan Meja"),
-        titleTextStyle:
-            TextStyle(color: Color.fromRGBO(193, 213, 164, 1), fontSize: 18.0),
-      ),
+          centerTitle: true,
+          backgroundColor: Color(0xFFD8BC8C),
+          elevation: 0,
+          title: Text(
+            "Tambahkan Data Meja",
+            style: GoogleFonts.poppins(
+                fontWeight: FontWeight.bold, color: Color(0xFF342D23)),
+          )),
       // Body
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -44,15 +46,13 @@ class _FormsState extends State<Forms> {
                 // Nama Pesanan
                 child: TextFormField(
                   style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65))),
+                      textStyle: TextStyle(color: Color(0xFF342D23))),
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: "Nama Pesanan",
                       labelText: "Nama pesanan",
-                      labelStyle:
-                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65)),
+                      labelStyle: TextStyle(color: Color(0xA4342D23)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
                 ),
@@ -70,8 +70,7 @@ class _FormsState extends State<Forms> {
                 // form alamat
                 child: TextFormField(
                   style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65))),
+                      textStyle: TextStyle(color: Color(0xFF342D23))),
                   maxLines: 3,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -97,8 +96,7 @@ class _FormsState extends State<Forms> {
                 // form no.hp
                 child: TextFormField(
                   style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65))),
+                      textStyle: TextStyle(color: Color(0xFF342D23))),
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
@@ -124,8 +122,7 @@ class _FormsState extends State<Forms> {
                 // deskripsi
                 child: TextFormField(
                   style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65))),
+                      textStyle: TextStyle(color: Color(0xFF342D23))),
                   maxLines: 3,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -151,8 +148,7 @@ class _FormsState extends State<Forms> {
                 // tanggal
                 child: TextFormField(
                   style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65))),
+                      textStyle: TextStyle(color: Color(0xFF342D23))),
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(
