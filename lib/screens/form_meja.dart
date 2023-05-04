@@ -1,15 +1,16 @@
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Forms extends StatefulWidget {
-  const Forms({super.key});
+class Forms_meja extends StatefulWidget {
+  const Forms_meja({super.key});
 
   @override
-  State<Forms> createState() => _FormsState();
+  State<Forms_meja> createState() => _Forms_mejaState();
 }
 
-class _FormsState extends State<Forms> {
+class _Forms_mejaState extends State<Forms_meja> {
   TextEditingController datetimeinput = TextEditingController();
   @override
   void initState() {
@@ -20,15 +21,15 @@ class _FormsState extends State<Forms> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFD8BC8C),
+      backgroundColor: Color(0xFF42454E),
       appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Color(0xFFD8BC8C),
+          backgroundColor: Color(0xFF42454E),
           elevation: 0,
           title: Text(
             "Tambahkan Data Meja",
             style: GoogleFonts.poppins(
-                fontWeight: FontWeight.bold, color: Color(0xFF342D23)),
+                fontWeight: FontWeight.bold, color: Color(0xFFFFFFFF)),
           )),
       // Body
       body: SingleChildScrollView(
@@ -41,18 +42,23 @@ class _FormsState extends State<Forms> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Color(0xFFC1D5A4),
+                  color: Color(0xFF676B77),
                 ),
                 // Nama Pesanan
                 child: TextFormField(
                   style: GoogleFonts.poppins(
-                      textStyle: TextStyle(color: Color(0xFF342D23))),
+                      textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0x00FFFFFF))),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: "Nama Pesanan",
+                      hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
                       labelText: "Nama pesanan",
-                      labelStyle: TextStyle(color: Color(0xA4342D23)),
+                      labelStyle: TextStyle(color: Color(0xFFFFFFFF)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
                 ),
@@ -65,20 +71,24 @@ class _FormsState extends State<Forms> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Color(0xFFC1D5A4),
+                  color: Color(0xFF676B77),
                 ),
                 // form alamat
                 child: TextFormField(
                   style: GoogleFonts.poppins(
-                      textStyle: TextStyle(color: Color(0xFF342D23))),
+                      textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   maxLines: 3,
                   decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0x00FFFFFF))),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: "Alamat",
+                      hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
                       labelText: "Alamat",
-                      labelStyle:
-                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65)),
+                      labelStyle: TextStyle(color: Color(0XFFFFFFFF)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
                 ),
@@ -91,19 +101,23 @@ class _FormsState extends State<Forms> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Color(0xFFC1D5A4),
+                  color: Color(0xFF676B77),
                 ),
                 // form no.hp
                 child: TextFormField(
                   style: GoogleFonts.poppins(
-                      textStyle: TextStyle(color: Color(0xFF342D23))),
+                      textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0x00FFFFFF))),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: "No.Handphone",
+                      hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
                       labelText: "No.Handphone",
-                      labelStyle:
-                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65)),
+                      labelStyle: TextStyle(color: Color(0XFFFFFFFF)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
                   keyboardType: TextInputType.number,
@@ -117,20 +131,24 @@ class _FormsState extends State<Forms> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Color(0xFFC1D5A4),
+                  color: Color(0xFF676B77),
                 ),
                 // deskripsi
                 child: TextFormField(
                   style: GoogleFonts.poppins(
-                      textStyle: TextStyle(color: Color(0xFF342D23))),
+                      textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   maxLines: 3,
                   decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0x00FFFFFF))),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: "Deskripsi",
+                      hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
                       labelText: "Deskripsi",
-                      labelStyle:
-                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65)),
+                      labelStyle: TextStyle(color: Color(0XFFFFFFFF)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
                 ),
@@ -143,21 +161,25 @@ class _FormsState extends State<Forms> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Color(0xFFC1D5A4),
+                  color: Color(0xFF676B77),
                 ),
                 // tanggal
                 child: TextFormField(
                   style: GoogleFonts.poppins(
-                      textStyle: TextStyle(color: Color(0xFF342D23))),
+                      textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   decoration: InputDecoration(
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0x00FFFFFF))),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(
                         10,
                       )),
                       hintText: "Tanggal",
+                      hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
                       labelText: "Tanggal",
-                      labelStyle:
-                          TextStyle(color: Color.fromRGBO(52, 45, 35, 0.65)),
+                      labelStyle: TextStyle(color: Color(0XFFFFFFFF)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
                   controller: datetimeinput,
@@ -182,7 +204,7 @@ class _FormsState extends State<Forms> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 30,
               ),
               // Button
               Row(
@@ -191,14 +213,15 @@ class _FormsState extends State<Forms> {
                   Container(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: Color.fromRGBO(193, 213, 164, 1),
-                          onPrimary: Color.fromRGBO(52, 45, 35, 65),
+                          primary: Color(0XFF676B77),
+                          onPrimary: Color(0XFFFFFFFF),
                           minimumSize: Size(150, 40),
                           textStyle: GoogleFonts.poppins(
                               textStyle: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16.0)),
+                                  fontWeight: FontWeight.bold, fontSize: 18.0)),
                           shape: ContinuousRectangleBorder(
-                              borderRadius: BorderRadius.circular(20))),
+                              borderRadius: BorderRadius.circular(20)),
+                          shadowColor: Color(0XFF000000)),
                       onPressed: () {},
                       child: Text("Batal"),
                     ),
@@ -206,15 +229,16 @@ class _FormsState extends State<Forms> {
                   Container(
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: Color.fromRGBO(52, 45, 35, 1),
-                              onPrimary: Color.fromRGBO(193, 213, 164, 1),
+                              primary: Color(0XFFFFFFFF),
+                              onPrimary: Color(0XFF676B77),
                               minimumSize: Size(150, 40),
                               textStyle: GoogleFonts.poppins(
                                   textStyle: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 16.0)),
+                                      fontSize: 18.0)),
                               shape: ContinuousRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20))),
+                                  borderRadius: BorderRadius.circular(20)),
+                              shadowColor: Color(0XFF000000)),
                           onPressed: () {},
                           child: Text("Simpan"))),
                 ],
