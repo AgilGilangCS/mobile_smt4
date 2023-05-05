@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_smt4/screens/login.dart';
 import 'screens/form_meja.dart';
 import 'screens/edit_meja.dart';
+import 'screens/detail_meja.dart';
 import 'screens/homes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/src/widgets/image.dart';
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Keren',
-      home: Edits_meja(),
+      home: Details_meja(),
     );
   }
 }
