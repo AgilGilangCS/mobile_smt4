@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'screens/form_meja.dart';
-import 'screens/edit_meja.dart';
-import 'screens/detail_meja.dart';
-import 'screens/homes.dart';
+import 'screens_meja/form_meja.dart';
+import 'screens_meja/meja.dart';
+import 'screens_meja/edit_meja.dart';
+import 'screens_meja/detail_meja.dart';
+import 'homes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/src/widgets/image.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Keren',
-      home: Details_meja(),
+      home: Mejas(),
     );
   }
 }

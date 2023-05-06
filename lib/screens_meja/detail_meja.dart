@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import '/screens_meja/edit_meja.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Details_meja extends StatefulWidget {
@@ -22,16 +23,18 @@ class _Details_mejaState extends State<Details_meja> {
     return Scaffold(
       backgroundColor: Color(0xFF42454E),
       appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Color(0xFF42454E),
-          elevation: 0,
-          title: Text(
-            "Detail",
-            style: GoogleFonts.poppins(
-                fontWeight: FontWeight.bold, color: Color(0xFFFFFFFF)),
-          )),
+        centerTitle: true,
+        backgroundColor: Color(0xFF42454E),
+        elevation: 0,
+        title: Text(
+          "Detail",
+          style: GoogleFonts.poppins(
+              fontWeight: FontWeight.bold, color: Color(0xFFFFFFFF)),
+        ),
+        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+      ),
       // Body
-      body: ListView(padding: EdgeInsets.only(left: 20), children: [
+      body: ListView(padding: EdgeInsets.only(left: 20, right: 10), children: [
         SizedBox(
           height: 70,
         ),
@@ -126,7 +129,24 @@ class _Details_mejaState extends State<Details_meja> {
             fontSize: 16,
             color: Color(0xFFFFFFFF),
           ),
-        ), 
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        ElevatedButton(
+          onPressed: () {},
+          child: Text("Edit"),
+          style: ElevatedButton.styleFrom(
+              primary: Color(0xFF676B77),
+              onPrimary: Color(0xFFFFFFFFF),
+              minimumSize: Size(0, 40),
+              textStyle: GoogleFonts.poppins(
+                  textStyle:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0)),
+              shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              shadowColor: Color(0XFF000000)),
+        )
       ]),
     );
   }
