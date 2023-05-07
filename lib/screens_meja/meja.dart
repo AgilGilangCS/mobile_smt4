@@ -93,7 +93,7 @@ class Mejas extends StatelessWidget {
                                   // Garis
                                   Divider(
                                     thickness: 1,
-                                    color: Colors.grey,
+                                    color: Color(0xFFF9683A),
                                   ),
                                   // Tanggal dan Icon Button
                                   Row(
@@ -114,7 +114,7 @@ class Mejas extends StatelessWidget {
                                       IconButton(
                                         icon: Icon(
                                           Icons.arrow_right_rounded,
-                                          color: Colors.white,
+                                          color: Color(0XFFF9683A),
                                           size: 30,
                                         ),
                                         onPressed: () {
@@ -146,11 +146,11 @@ class Mejas extends StatelessWidget {
                   height: 80,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: Colors.white,
+                    color: Color(0XFFF9683A),
                   ),
                   child: Icon(
                     Icons.add,
-                    color: Color(0xFF42454E),
+                    color: Color(0xFFFFFFFF),
                     size: 35,
                   ),
                 ),

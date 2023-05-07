@@ -28,7 +28,7 @@ class _Edits_mejaState extends State<Edits_meja> {
           title: Text(
             "Edit",
             style: GoogleFonts.poppins(
-                fontWeight: FontWeight.bold, color: Color(0xFFFFFFFF)),
+                fontWeight: FontWeight.bold, color: Color(0xFFF9683A)),
           )),
       // Body
       body: SingleChildScrollView(

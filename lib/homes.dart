@@ -47,18 +47,38 @@ class _HomesState extends State<Homes> with SingleTickerProviderStateMixin {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  " Selamat Datang,",
-                  style: GoogleFonts.poppins(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFFFFFFF)),
+                Row(
+                  children: [
+                    Text(
+                      " Selamat",
+                      style: GoogleFonts.poppins(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFFFFFFFF)),
+                    ),
+                    Text(
+                      " Datang,",
+                      style: GoogleFonts.poppins(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFFF9683A)),
+                    ),
+                  ],
                 ),
-                Text("    Semangat Bekerja",
-                    style: GoogleFonts.poppins(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFFFFFFFF))),
+                Row(
+                  children: [
+                    Text("    Semangat",
+                        style: GoogleFonts.poppins(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFFFFFFF))),
+                    Text(" Bekerja",
+                        style: GoogleFonts.poppins(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFF9683A))),
+                  ],
+                ),
                 SizedBox(
                   height: 20,
                 ),

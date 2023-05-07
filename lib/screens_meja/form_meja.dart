@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,7 +28,7 @@ class _Forms_mejaState extends State<Forms_meja> {
           title: Text(
             "Tambahkan Data Meja",
             style: GoogleFonts.poppins(
-                fontWeight: FontWeight.bold, color: Color(0xFFFFFFFF)),
+                fontWeight: FontWeight.bold, color: Color(0xFFF9683A)),
           )),
       // Body
       body: SingleChildScrollView(

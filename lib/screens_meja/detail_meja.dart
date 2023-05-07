@@ -29,9 +29,14 @@ class _Details_mejaState extends State<Details_meja> {
         title: Text(
           "Detail",
           style: GoogleFonts.poppins(
-              fontWeight: FontWeight.bold, color: Color(0xFFFFFFFF)),
+              fontWeight: FontWeight.bold, color: Color(0xFFF9683A)),
         ),
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        leading: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.arrow_back,
+              color: Color(0xFFF9683A),
+            )),
       ),
       // Body
       body: ListView(padding: EdgeInsets.only(left: 20, right: 10), children: [
