@@ -49,13 +49,13 @@ class _Forms_mejaState extends State<Forms_meja> {
                       textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                          borderSide: BorderSide(color: Color(0xFFF9683A))),
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0x00FFFFFF))),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: "Nama Pesanan",
-                      hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
+                      hintStyle: TextStyle(color: Color(0xFFF9683A)),
                       labelText: "Nama pesanan",
                       labelStyle: TextStyle(color: Color(0xFFFFFFFF)),
                       contentPadding:
@@ -79,13 +79,13 @@ class _Forms_mejaState extends State<Forms_meja> {
                   maxLines: 3,
                   decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                          borderSide: BorderSide(color: Color(0xFFF9683A))),
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0x00FFFFFF))),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: "Alamat",
-                      hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
+                      hintStyle: TextStyle(color: Color(0xFFF9683A)),
                       labelText: "Alamat",
                       labelStyle: TextStyle(color: Color(0XFFFFFFFF)),
                       contentPadding:
@@ -108,13 +108,13 @@ class _Forms_mejaState extends State<Forms_meja> {
                       textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                          borderSide: BorderSide(color: Color(0xFFF9683A))),
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0x00FFFFFF))),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: "No.Handphone",
-                      hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
+                      hintStyle: TextStyle(color: Color(0xFFF9683A)),
                       labelText: "No.Handphone",
                       labelStyle: TextStyle(color: Color(0XFFFFFFFF)),
                       contentPadding:
@@ -139,13 +139,13 @@ class _Forms_mejaState extends State<Forms_meja> {
                   maxLines: 3,
                   decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                          borderSide: BorderSide(color: Color(0xFFF9683A))),
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0x00FFFFFF))),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       hintText: "Deskripsi",
-                      hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
+                      hintStyle: TextStyle(color: Color(0xFFF9683A)),
                       labelText: "Deskripsi",
                       labelStyle: TextStyle(color: Color(0XFFFFFFFF)),
                       contentPadding:
@@ -168,7 +168,7 @@ class _Forms_mejaState extends State<Forms_meja> {
                       textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFFFFFFFF))),
+                          borderSide: BorderSide(color: Color(0xFFF9683A))),
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0x00FFFFFF))),
                       border: OutlineInputBorder(
@@ -176,7 +176,7 @@ class _Forms_mejaState extends State<Forms_meja> {
                         10,
                       )),
                       hintText: "Tanggal",
-                      hintStyle: TextStyle(color: Color(0xFFFFFFFF)),
+                      hintStyle: TextStyle(color: Color(0xFFF9683A)),
                       labelText: "Tanggal",
                       labelStyle: TextStyle(color: Color(0XFFFFFFFF)),
                       contentPadding:
