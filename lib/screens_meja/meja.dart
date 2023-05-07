@@ -650,6 +650,28 @@ class Mejas extends StatelessWidget {
                 ],
               ),
             ),
+            Positioned(
+              right: 34,
+              bottom: 31,
+              child: GestureDetector(
+                onTap: () {
+                  print('IconButton pressed ...');
+                },
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.white,
+                  ),
+                  child: Icon(
+                    Icons.add,
+                    color: Color(0xFF676B77),
+                    size: 35,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
