@@ -150,7 +150,7 @@ class Mejas extends StatelessWidget {
                   ),
                   child: Icon(
                     Icons.add,
-                    color: Color(0xFF676B77),
+                    color: Color(0xFF42454E),
                     size: 35,
                   ),
                 ),
