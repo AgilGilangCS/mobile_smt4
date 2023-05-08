@@ -143,6 +143,7 @@ class _HomesState extends State<Homes> with SingleTickerProviderStateMixin {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      // Button Lemari
                       ElevatedButton(
                         onPressed: () {},
                         child: Column(
@@ -165,6 +166,7 @@ class _HomesState extends State<Homes> with SingleTickerProviderStateMixin {
                                 borderRadius: BorderRadius.circular(15)),
                             elevation: 6),
                       ),
+                      // Button Riwayat
                       ElevatedButton(
                         onPressed: () {},
                         child: Column(
