@@ -142,7 +142,7 @@ class _Details_mejaState extends State<Details_meja> {
           onPressed: () {},
           child: Text("Edit"),
           style: ElevatedButton.styleFrom(
-              primary: Color(0xFF676B77),
+              primary: Color(0xFFF9683A),
               onPrimary: Color(0xFFFFFFFFF),
               minimumSize: Size(0, 40),
               textStyle: GoogleFonts.poppins(
