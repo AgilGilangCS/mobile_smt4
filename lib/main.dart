@@ -7,6 +7,7 @@ import 'homes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/src/widgets/image.dart';
 import 'package:intl/intl.dart';
+import 'splashscreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Keren',
-      home: Mejas(),
+      home: SplashScreen(),
     );
   }
 }
