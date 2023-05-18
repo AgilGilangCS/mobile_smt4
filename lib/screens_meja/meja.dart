@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_smt4/homes.dart';
+import 'package:mobile_smt4/screens_meja/detail_meja.dart';
+import 'package:mobile_smt4/screens_meja/form_meja.dart';
 
 class Mejas extends StatelessWidget {
   const Mejas({super.key});
@@ -18,7 +21,11 @@ class Mejas extends StatelessWidget {
           elevation: 0,
           leading: IconButton(
             onPressed: () {
-              print("Kenek");
+              Navigator.pushReplacement(context, MaterialPageRoute(
+                builder: (context) {
+                  return Homes();
+                },
+              ));
             },
             icon: Icon(Icons.arrow_back),
             color: Color(0xFF42454E),
@@ -118,7 +125,12 @@ class Mejas extends StatelessWidget {
                                           size: 30,
                                         ),
                                         onPressed: () {
-                                          print('IconButton pressed ...');
+                                          Navigator.push(context,
+                                              MaterialPageRoute(
+                                            builder: (context) {
+                                              return Details_meja();
+                                            },
+                                          ));
                                         },
                                       ),
                                     ],
@@ -139,7 +151,11 @@ class Mejas extends StatelessWidget {
               bottom: 31,
               child: GestureDetector(
                 onTap: () {
-                  print('IconButton pressed ...');
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return Forms_meja();
+                    },
+                  ));
                 },
                 child: Container(
                   width: 80,

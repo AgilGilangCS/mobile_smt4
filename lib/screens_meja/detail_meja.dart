@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:mobile_smt4/screens_meja/meja.dart';
 import '/screens_meja/edit_meja.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -32,7 +33,13 @@ class _Details_mejaState extends State<Details_meja> {
               fontWeight: FontWeight.bold, color: Color(0xFFF9683A)),
         ),
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return Mejas();
+                },
+              ));
+            },
             icon: Icon(
               Icons.arrow_back,
               color: Color(0xFFF9683A),

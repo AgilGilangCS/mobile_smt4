@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_smt4/screens_meja/meja.dart';
 
 class Homes extends StatefulWidget {
   const Homes({super.key});
@@ -89,7 +90,12 @@ class _HomesState extends State<Homes> with SingleTickerProviderStateMixin {
                     children: [
                       // button meja
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return Mejas();
+                          }));
+                        },
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
