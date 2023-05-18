@@ -172,9 +172,9 @@ class _HomesState extends State<Homes> with SingleTickerProviderStateMixin {
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Image.asset("assets/images/img-riwayat.png"),
+                              Image.asset("assets/images/img-custom.png"),
                               Text(
-                                "Riwayat",
+                                "Custom",
                                 style: GoogleFonts.openSans(
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold,
