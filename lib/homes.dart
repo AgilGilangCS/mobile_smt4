@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_smt4/screen_custom/custom.dart';
+import 'package:mobile_smt4/screen_kursi/kursi.dart';
+import 'package:mobile_smt4/screen_lemari/lemari.dart';
 import 'package:mobile_smt4/screens_meja/meja.dart';
 
 class Homes extends StatefulWidget {
@@ -117,7 +120,12 @@ class _HomesState extends State<Homes> with SingleTickerProviderStateMixin {
                       ),
                       // button kursi
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return Kursis();
+                          }));
+                        },
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -151,7 +159,12 @@ class _HomesState extends State<Homes> with SingleTickerProviderStateMixin {
                     children: [
                       // Button Lemari
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return Lemaris();
+                          }));
+                        },
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -174,7 +187,12 @@ class _HomesState extends State<Homes> with SingleTickerProviderStateMixin {
                       ),
                       // Button Riwayat
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return Customs();
+                          }));
+                        },
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
