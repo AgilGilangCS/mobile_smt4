@@ -22,14 +22,16 @@ class _Forms_mejaState extends State<Forms_meja> {
     return Scaffold(
       backgroundColor: Color(0xFF42454E),
       appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Color(0xFF42454E),
-          elevation: 0,
-          title: Text(
-            "Tambahkan Data Meja",
-            style: GoogleFonts.poppins(
-                fontWeight: FontWeight.bold, color: Color(0xFFF9683A)),
-          )),
+        centerTitle: true,
+        backgroundColor: Color(0xFF42454E),
+        elevation: 0,
+        title: Text(
+          "Tambahkan Data Meja",
+          style: GoogleFonts.poppins(
+              fontWeight: FontWeight.bold, color: Color(0xFFF9683A)),
+        ),
+        leading: Container(),
+      ),
       // Body
       body: SingleChildScrollView(
         child: Container(
@@ -222,7 +224,9 @@ class _Forms_mejaState extends State<Forms_meja> {
                           shape: ContinuousRectangleBorder(
                               borderRadius: BorderRadius.circular(20)),
                           shadowColor: Color(0XFF000000)),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       child: Text("Batal"),
                     ),
                   ),

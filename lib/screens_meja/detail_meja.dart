@@ -34,11 +34,7 @@ class _Details_mejaState extends State<Details_meja> {
         ),
         leading: IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return Mejas();
-                },
-              ));
+              Navigator.pop(context);
             },
             icon: Icon(
               Icons.arrow_back,
@@ -147,7 +143,13 @@ class _Details_mejaState extends State<Details_meja> {
         ),
         // Button Edit
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return Edits_meja();
+              },
+            ));
+          },
           child: Text("Edit"),
           style: ElevatedButton.styleFrom(
               primary: Color(0xFFF9683A),

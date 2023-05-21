@@ -19,7 +19,8 @@ class _SplashScreenState extends State<SplashScreen> {
   splashscreenStart() async {
     var duration = const Duration(seconds: 3);
     return Timer(duration, () {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Homes()));
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Homes()));
     });
   }
 

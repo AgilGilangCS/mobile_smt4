@@ -21,11 +21,7 @@ class Mejas extends StatelessWidget {
           elevation: 0,
           leading: IconButton(
             onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(
-                builder: (context) {
-                  return Homes();
-                },
-              ));
+              Navigator.pop(context);
             },
             icon: Icon(Icons.arrow_back),
             color: Color(0xFF42454E),
