@@ -130,7 +130,7 @@ class _HomesState extends State<Homes> with SingleTickerProviderStateMixin {
                           Image.asset("assets/images/daftar-produk.png"),
                           SizedBox(width: 15),
                           Text(
-                            "Catalog",
+                            "Daftar Produk",
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
