@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_smt4/catalog.dart';
 import 'package:mobile_smt4/screen_custom/custom.dart';
 import 'package:mobile_smt4/screen_kursi/kursi.dart';
 import 'package:mobile_smt4/screen_lemari/lemari.dart';
@@ -121,7 +122,11 @@ class _HomesState extends State<Homes> with SingleTickerProviderStateMixin {
               Container(
                 margin: EdgeInsets.only(left: 40,right: 40,top: 6,bottom: 5),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return Catalogs();
+                    }));
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

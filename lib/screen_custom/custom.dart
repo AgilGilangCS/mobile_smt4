@@ -32,7 +32,7 @@ class Customs extends StatelessWidget {
             // Background
             Container(
               width: 426,
-              height: 740,
+              height: 786,
               decoration: BoxDecoration(
                 color: Color(0xFF42454E),
                 borderRadius: BorderRadius.only(

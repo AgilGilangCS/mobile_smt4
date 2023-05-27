@@ -40,6 +40,13 @@ class _Details_mejaState extends State<Details_meja> {
               Icons.arrow_back,
               color: Color(0xFFF9683A),
             )),
+        actions: [
+          IconButton(onPressed: (){
+
+          },
+              icon: Icon(Icons.delete_forever_rounded,
+              color: Color(0xFFF24E1E),))
+        ],
       ),
       // Body
       body: ListView(padding: EdgeInsets.only(left: 20, right: 10), children: [
@@ -152,8 +159,8 @@ class _Details_mejaState extends State<Details_meja> {
           },
           child: Text("Edit"),
           style: ElevatedButton.styleFrom(
-              primary: Color(0xFFF9683A),
-              onPrimary: Color(0xFFFFFFFFF),
+              primary: Color(0XFF676B77),
+              onPrimary: Color(0XFFFFFFFF),
               minimumSize: Size(0, 40),
               textStyle: GoogleFonts.poppins(
                   textStyle:
