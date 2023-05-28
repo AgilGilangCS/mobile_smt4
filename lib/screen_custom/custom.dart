@@ -14,7 +14,7 @@ class Customs extends StatelessWidget {
           backgroundColor: Color(0xFFFFFFFF),
           centerTitle: true,
           title: Text(
-            "Custom",
+            "Lainnya",
             style: GoogleFonts.poppins(
                 color: Color(0xFF42454E), fontWeight: FontWeight.bold),
           ),

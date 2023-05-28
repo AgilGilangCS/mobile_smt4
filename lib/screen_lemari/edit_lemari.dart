@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,6 +14,17 @@ class Edits_lemari extends StatefulWidget {
 
 class _Edits_lemariState extends State<Edits_lemari> {
   TextEditingController datetimeinput = TextEditingController();
+  File? image;
+
+  Future getImage() async{
+    final ImagePicker _picker = ImagePicker();
+    final XFile? imagePicker = await _picker.pickImage(source: ImageSource.gallery);
+    image = File(imagePicker!.path);
+    setState(() {
+
+    });
+  }
+
   @override
   void initState() {
     datetimeinput.text = "";
@@ -39,6 +53,23 @@ class _Edits_lemariState extends State<Edits_lemari> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
+              image != null ? Container(height: 200, width: MediaQuery.of(context).size.width,
+                  child: Image.file(image!,fit: BoxFit.cover,)): Container(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(onPressed: () async {
+                    await getImage();
+                  },
+                    child: Text("Ganti Foto"),
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0XFFF9683A),
+                      onPrimary: Color(0XFFFFFFFF),
+                      textStyle: GoogleFonts.poppins(),
+                    ),),
+                ],
+              ),
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
