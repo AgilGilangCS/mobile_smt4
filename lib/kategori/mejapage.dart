@@ -12,7 +12,7 @@ class mejapage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text("Meja Kategori", style: GoogleFonts.poppins(fontSize: 18,
+            Text("Kategori Meja", style: GoogleFonts.poppins(fontSize: 18,
             fontWeight: FontWeight.bold),),
             GridView(
               shrinkWrap: true,

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_smt4/kategori/kursipage.dart';
+import 'package:mobile_smt4/kategori/lainnyapage.dart';
+import 'package:mobile_smt4/kategori/lemaripage.dart';
 import 'package:mobile_smt4/kategori/mejapage.dart';
 import 'package:mobile_smt4/screen_custom/custom.dart';
 import 'package:mobile_smt4/screen_kursi/kursi.dart';
@@ -67,9 +70,9 @@ class _CatalogsState extends State<Catalogs> with SingleTickerProviderStateMixin
         controller: _tabController,
         children: [
               mejapage(),
-              Kursis(),
-              Lemaris(),
-              Customs(),
+              kursipage(),
+              lemaripage(),
+              lainnyapage(),
             ],
       )
     );
