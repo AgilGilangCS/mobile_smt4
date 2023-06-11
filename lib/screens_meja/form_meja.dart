@@ -1,9 +1,10 @@
 import 'dart:io';
-
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mobile_smt4/homes.dart';
 
 class Forms_meja extends StatefulWidget {
   const Forms_meja({super.key});
@@ -13,16 +14,37 @@ class Forms_meja extends StatefulWidget {
 }
 
 class _Forms_mejaState extends State<Forms_meja> {
+  final formKey = GlobalKey<FormState>();
+  TextEditingController namapesanan = TextEditingController();
+  TextEditingController alamat = TextEditingController();
+  TextEditingController notelepon = TextEditingController();
+  TextEditingController deskripsi = TextEditingController();
   TextEditingController datetimeinput = TextEditingController();
+  TextEditingController harga = TextEditingController();
   File? image;
 
-  Future getImage() async{
+  Future getImage() async {
     final ImagePicker _picker = ImagePicker();
-    final XFile? imagePicker = await _picker.pickImage(source: ImageSource.gallery);
+    final XFile? imagePicker =
+        await _picker.pickImage(source: ImageSource.gallery);
     image = File(imagePicker!.path);
-    setState(() {
+    setState(() {});
+  }
 
+  Future _simpan() async {
+    final respone = await http
+        .post(Uri.parse('http://192.168.1.32/ip_config/create.php'), body: {
+      "namapesanan": namapesanan.text,
+      "alamat": namapesanan.text,
+      "notelepon": notelepon.text,
+      "deskripsi": deskripsi.text,
+      "datetimeinput": datetimeinput.text,
+      "harga": harga.text,
     });
+    if (respone.statusCode == 200) {
+      return true;
+    }
+    return false;
   }
 
   @override
@@ -48,25 +70,35 @@ class _Forms_mejaState extends State<Forms_meja> {
       ),
       // Body
       body: SingleChildScrollView(
+        key: formKey,
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 10, vertical: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              image != null ? Container(height: 200, width: MediaQuery.of(context).size.width,
-                  child: Image.file(image!,fit: BoxFit.cover,)): Container(),
+              image != null
+                  ? Container(
+                      height: 200,
+                      width: MediaQuery.of(context).size.width,
+                      child: Image.file(
+                        image!,
+                        fit: BoxFit.cover,
+                      ))
+                  : Container(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(onPressed: () async {
-                    await getImage();
-                  },
-                      child: Text("Tambahkan Foto"),
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0XFFF9683A),
-                    onPrimary: Color(0XFFFFFFFF),
-                    textStyle: GoogleFonts.poppins(),
-                  ),),
+                  ElevatedButton(
+                    onPressed: () async {
+                      await getImage();
+                    },
+                    child: Text("Tambahkan Foto"),
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0XFFF9683A),
+                      onPrimary: Color(0XFFFFFFFF),
+                      textStyle: GoogleFonts.poppins(),
+                    ),
+                  ),
                 ],
               ),
               Container(
@@ -77,6 +109,7 @@ class _Forms_mejaState extends State<Forms_meja> {
                 ),
                 // Nama Pesanan
                 child: TextFormField(
+                  controller: namapesanan,
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   decoration: InputDecoration(
@@ -92,6 +125,11 @@ class _Forms_mejaState extends State<Forms_meja> {
                       labelStyle: TextStyle(color: Color(0xFFFFFFFF)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Nama Pesanan Tidak Boleh Kosong";
+                    }
+                  },
                 ),
               ),
               // Alamat
@@ -106,6 +144,7 @@ class _Forms_mejaState extends State<Forms_meja> {
                 ),
                 // form alamat
                 child: TextFormField(
+                  controller: alamat,
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   maxLines: 3,
@@ -122,6 +161,11 @@ class _Forms_mejaState extends State<Forms_meja> {
                       labelStyle: TextStyle(color: Color(0XFFFFFFFF)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Alamat Tidak Boleh Kosong";
+                    }
+                  },
                 ),
               ),
               // no.hp
@@ -136,6 +180,7 @@ class _Forms_mejaState extends State<Forms_meja> {
                 ),
                 // form no.hp
                 child: TextFormField(
+                  controller: notelepon,
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   decoration: InputDecoration(
@@ -152,6 +197,11 @@ class _Forms_mejaState extends State<Forms_meja> {
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
                   keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "No Telepon Tidak Boleh Kosong";
+                    }
+                  },
                 ),
               ),
               // deskripsi
@@ -166,6 +216,7 @@ class _Forms_mejaState extends State<Forms_meja> {
                 ),
                 // deskripsi
                 child: TextFormField(
+                  controller: deskripsi,
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   maxLines: 3,
@@ -182,6 +233,11 @@ class _Forms_mejaState extends State<Forms_meja> {
                       labelStyle: TextStyle(color: Color(0XFFFFFFFF)),
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 15, vertical: 15)),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Deskripsi Tidak Boleh Kosong";
+                    }
+                  },
                 ),
               ),
               // tanggal
@@ -274,7 +330,31 @@ class _Forms_mejaState extends State<Forms_meja> {
                               shape: ContinuousRectangleBorder(
                                   borderRadius: BorderRadius.circular(20)),
                               shadowColor: Color(0XFF000000)),
-                          onPressed: () {},
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              _simpan().then((value) {
+                                if (value) {
+                                  final snackBar = SnackBar(
+                                    content:
+                                        const Text('Data Berhasil Di Simpan'),
+                                  );
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                } else {
+                                  final snackBar = SnackBar(
+                                    content: const Text('Data Gagal Di Simpan'),
+                                  );
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                }
+                              });
+                              Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => Homes())),
+                                  (route) => false);
+                            }
+                          },
                           child: Text("Simpan"))),
                 ],
               )

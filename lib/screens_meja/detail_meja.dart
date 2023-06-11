@@ -153,7 +153,7 @@ class _Details_mejaState extends State<Details_meja> {
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) {
-                return Edits_meja();
+                return Edits_meja(ListData: {},);
               },
             ));
           },

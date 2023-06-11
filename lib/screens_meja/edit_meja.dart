@@ -1,28 +1,55 @@
 import 'dart:io';
-
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../homes.dart';
+
 class Edits_meja extends StatefulWidget {
-  const Edits_meja({super.key});
+  final Map ListData;
+  const Edits_meja({Key? key, required this.ListData}) : super(key: key);
 
   @override
   State<Edits_meja> createState() => _Edits_mejaState();
 }
 
 class _Edits_mejaState extends State<Edits_meja> {
+  final formKey = GlobalKey<FormState>();
+  TextEditingController id = TextEditingController();
+  TextEditingController namapesanan = TextEditingController();
+  TextEditingController alamat = TextEditingController();
+  TextEditingController notelepon = TextEditingController();
+  TextEditingController deskripsi = TextEditingController();
   TextEditingController datetimeinput = TextEditingController();
+  TextEditingController harga = TextEditingController();
+  
   File? image;
 
-  Future getImage() async{
+  Future getImage() async {
     final ImagePicker _picker = ImagePicker();
-    final XFile? imagePicker = await _picker.pickImage(source: ImageSource.gallery);
+    final XFile? imagePicker =
+        await _picker.pickImage(source: ImageSource.gallery);
     image = File(imagePicker!.path);
-    setState(() {
+    setState(() {});
+  }
 
+  Future _update() async {
+    final respone = await http
+        .post(Uri.parse('http://192.168.1.32/ip_config/edit.php'), body: {
+      "id": id.text,
+      "namapesanan": namapesanan.text,
+      "alamat": namapesanan.text,
+      "notelepon": notelepon.text,
+      "deskripsi": deskripsi.text,
+      "datetimeinput": datetimeinput.text,
+      "harga": harga.text,
     });
+    if (respone.statusCode == 200) {
+      return true;
+    }
+    return false;
   }
 
   @override
@@ -33,6 +60,12 @@ class _Edits_mejaState extends State<Edits_meja> {
 
   @override
   Widget build(BuildContext context) {
+    namapesanan.text = widget.ListData['namapesanan'];
+    alamat.text = widget.ListData['alamat'];
+    notelepon.text = widget.ListData['notelepon'];
+    deskripsi.text = widget.ListData['deskripsi'];
+    datetimeinput.text = widget.ListData['datetimeinput'];
+    harga.text = widget.ListData['harga'];
     return Scaffold(
       backgroundColor: Color(0xFF42454E),
       appBar: AppBar(
@@ -53,21 +86,29 @@ class _Edits_mejaState extends State<Edits_meja> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-              image != null ? Container(height: 200, width: MediaQuery.of(context).size.width,
-                  child: Image.file(image!,fit: BoxFit.cover,)): Container(),
+              image != null
+                  ? Container(
+                      height: 200,
+                      width: MediaQuery.of(context).size.width,
+                      child: Image.file(
+                        image!,
+                        fit: BoxFit.cover,
+                      ))
+                  : Container(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(onPressed: () async {
-                    await getImage();
-                  },
+                  ElevatedButton(
+                    onPressed: () async {
+                      await getImage();
+                    },
                     child: Text("Ganti Foto"),
                     style: ElevatedButton.styleFrom(
                       primary: Color(0XFFF9683A),
                       onPrimary: Color(0XFFFFFFFF),
                       textStyle: GoogleFonts.poppins(),
-                    ),),
+                    ),
+                  ),
                 ],
               ),
               Container(
@@ -78,6 +119,7 @@ class _Edits_mejaState extends State<Edits_meja> {
                 ),
                 // Nama Pesanan
                 child: TextFormField(
+                  controller: namapesanan,
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   decoration: InputDecoration(
@@ -107,6 +149,7 @@ class _Edits_mejaState extends State<Edits_meja> {
                 ),
                 // form alamat
                 child: TextFormField(
+                  controller: alamat,
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   maxLines: 3,
@@ -137,6 +180,7 @@ class _Edits_mejaState extends State<Edits_meja> {
                 ),
                 // form no.hp
                 child: TextFormField(
+                  controller: notelepon,
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   decoration: InputDecoration(
@@ -167,6 +211,7 @@ class _Edits_mejaState extends State<Edits_meja> {
                 ),
                 // deskripsi
                 child: TextFormField(
+                  controller: deskripsi,
                   style: GoogleFonts.poppins(
                       textStyle: TextStyle(color: Color(0xFFFFFFFF))),
                   maxLines: 3,
@@ -275,7 +320,31 @@ class _Edits_mejaState extends State<Edits_meja> {
                               shape: ContinuousRectangleBorder(
                                   borderRadius: BorderRadius.circular(20)),
                               shadowColor: Color(0XFF000000)),
-                          onPressed: () {},
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              _update().then((value) {
+                                if (value) {
+                                  final snackBar = SnackBar(
+                                    content:
+                                        const Text('Data Berhasil Di Update'),
+                                  );
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                } else {
+                                  final snackBar = SnackBar(
+                                    content: const Text('Data Gagal Di Update'),
+                                  );
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                }
+                              });
+                              Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) => Homes())),
+                                  (route) => false);
+                            }
+                          },
                           child: Text("Simpan"))),
                 ],
               )
