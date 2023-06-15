@@ -1,22 +1,36 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:mobile_smt4/screens_meja/meja.dart';
 import '/screens_meja/edit_meja.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 class Details_meja extends StatefulWidget {
-  const Details_meja({super.key});
+  final Map data;
+  const Details_meja({Key? key, required this.data});
 
   @override
   State<Details_meja> createState() => _Details_mejaState();
 }
 
 class _Details_mejaState extends State<Details_meja> {
-  TextEditingController datetimeinput = TextEditingController();
+  late String idMeja;
+  late String imageUrl;
+
+  Future<void> deleteMeja(String data) async {
+    String url = "http://192.168.43.116:8080/api/mejas/" + data;
+
+    var response = await http.delete(Uri.parse(url));
+    return json.decode(response.body);
+  }
+
   @override
   void initState() {
-    datetimeinput.text = "";
+    idMeja = widget.data['id_meja'].toString();
     super.initState();
+    String imageName = widget.data['image_meja'];
+    imageUrl = "http://192.168.43.116:8080/storage/img/$imageName";
   }
 
   @override
@@ -30,146 +44,217 @@ class _Details_mejaState extends State<Details_meja> {
         title: Text(
           "Detail",
           style: GoogleFonts.poppins(
-              fontWeight: FontWeight.bold, color: Color(0xFFF9683A)),
+            fontWeight: FontWeight.bold,
+            color: Color(0xFFF9683A),
+          ),
         ),
         leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Color(0xFFF9683A),
+          ),
+        ),
+        actions: [
+          IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              deleteMeja(widget.data['id_meja'].toString()).then((value) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Data telah dihapus")),
+                );
+                Navigator.pop(context);
+              });
             },
             icon: Icon(
-              Icons.arrow_back,
-              color: Color(0xFFF9683A),
-            )),
-        actions: [
-          IconButton(onPressed: (){
-
-          },
-              icon: Icon(Icons.delete_forever_rounded,
-              color: Color(0xFFF24E1E),))
+              Icons.delete_forever_rounded,
+              color: Color(0xFFF24E1E),
+            ),
+          )
         ],
       ),
       // Body
-      body: ListView(padding: EdgeInsets.only(left: 20, right: 10), children: [
-        SizedBox(
-          height: 70,
-        ),
-        // Nama Pesanan
-        Text(
-          "Nama Pesanan",
-          style: GoogleFonts.poppins(
+      body: ListView(
+        padding: EdgeInsets.only(left: 20, right: 10),
+        children: [
+          Container(
+            height: 200,
+            child: imageUrl != null
+                ? Image.network(
+                    imageUrl,
+                    errorBuilder: (BuildContext context, Object exception,
+                        StackTrace? stackTrace) {
+                      // Tampilkan teks atau tindakan lain jika gambar gagal dimuat
+                      return Text(
+                        'Gagal memuat gambar',
+                        style: TextStyle(color: Colors.white),
+                      );
+                    },
+                  )
+                : Center(
+                    child: Text(
+                      'Tidak ada gambar',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+          ),
+          SizedBox(
+            height: 70,
+          ),
+          // Nama Pesanan
+          Text(
+            "Nama Pesanan",
+            style: GoogleFonts.poppins(
               fontSize: 16,
               color: Color(0xFFFFFFFF),
-              fontWeight: FontWeight.bold),
-        ),
-        // output
-        Text(
-          "Ferdi Tok",
-          style: GoogleFonts.poppins(
-            fontSize: 16,
-            color: Color(0xFFFFFFFF),
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        SizedBox(
-          height: 30,
-        ),
-        // Alamat
-        Text(
-          "Alamat",
-          style: GoogleFonts.poppins(
+          // output
+          Text(
+            widget.data['nama_meja'],
+            style: GoogleFonts.poppins(
               fontSize: 16,
               color: Color(0xFFFFFFFF),
-              fontWeight: FontWeight.bold),
-        ),
-        // output
-        Text(
-          "Banyuwangi",
-          style: GoogleFonts.poppins(
-            fontSize: 16,
-            color: Color(0xFFFFFFFF),
+            ),
           ),
-        ),
-        SizedBox(
-          height: 30,
-        ),
-        // No.Telepon
-        Text(
-          "No.Telepon",
-          style: GoogleFonts.poppins(
+          SizedBox(
+            height: 30,
+          ),
+          // Alamat
+          Text(
+            "Alamat",
+            style: GoogleFonts.poppins(
               fontSize: 16,
               color: Color(0xFFFFFFFF),
-              fontWeight: FontWeight.bold),
-        ),
-        // output
-        Text(
-          "081234567898",
-          style: GoogleFonts.poppins(
-            fontSize: 16,
-            color: Color(0xFFFFFFFF),
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        SizedBox(
-          height: 30,
-        ),
-        // Deskripsi
-        Text(
-          "Deskripsi",
-          style: GoogleFonts.poppins(
+          // output
+          Text(
+            widget.data['alamat_meja'],
+            style: GoogleFonts.poppins(
               fontSize: 16,
               color: Color(0xFFFFFFFF),
-              fontWeight: FontWeight.bold),
-        ),
-        // output
-        Text(
-          "meja makan ukuran 3 meter x 2.5 meter, bahan kayu jati, kaca menggunakan ketebalan 5 cm",
-          style: GoogleFonts.poppins(
-            fontSize: 16,
-            color: Color(0xFFFFFFFF),
+            ),
           ),
-        ),
-        SizedBox(
-          height: 30,
-        ),
-        // Tanggal
-        Text(
-          "Batas Tanggal",
-          style: GoogleFonts.poppins(
+          SizedBox(
+            height: 30,
+          ),
+          // No.Telepon
+          Text(
+            "No.Telepon",
+            style: GoogleFonts.poppins(
               fontSize: 16,
               color: Color(0xFFFFFFFF),
-              fontWeight: FontWeight.bold),
-        ),
-        // output
-        Text(
-          "25 mei 2023",
-          style: GoogleFonts.poppins(
-            fontSize: 16,
-            color: Color(0xFFFFFFFF),
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        SizedBox(
-          height: 30,
-        ),
-        // Button Edit
-        ElevatedButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) {
-                return Edits_meja();
-              },
-            ));
-          },
-          child: Text("Edit"),
-          style: ElevatedButton.styleFrom(
+          // output
+          Text(
+            widget.data['telp_meja'],
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              color: Color(0xFFFFFFFF),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          // Deskripsi
+          Text(
+            "Deskripsi",
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              color: Color(0xFFFFFFFF),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          // output
+          Text(
+            widget.data['deskripsi_meja'],
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              color: Color(0xFFFFFFFF),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          // Tanggal
+          Text(
+            "Batas Tanggal",
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              color: Color(0xFFFFFFFF),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          // output
+          Text(
+            widget.data['tanggal_meja'],
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              color: Color(0xFFFFFFFF),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          // Harga
+          Text(
+            "Harga",
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              color: Color(0xFFFFFFFF),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          // output
+          Text(
+            widget.data['harga_meja'],
+            style: GoogleFonts.poppins(
+              fontSize: 16,
+              color: Color(0xFFFFFFFF),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          // Button Edit
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return Edits_meja(
+                      idMeja: idMeja,
+                    );
+                  },
+                ),
+              );
+            },
+            child: Text("Edit"),
+            style: ElevatedButton.styleFrom(
               primary: Color(0XFF676B77),
               onPrimary: Color(0XFFFFFFFF),
               minimumSize: Size(0, 40),
               textStyle: GoogleFonts.poppins(
-                  textStyle:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0)),
-              shape: ContinuousRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              shadowColor: Color(0XFF000000)),
-        )
-      ]),
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
+                ),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              shadowColor: Color(0XFF000000),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
