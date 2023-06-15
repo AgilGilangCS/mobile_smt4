@@ -151,6 +151,7 @@ class _Details_mejaState extends State<Details_meja> {
               fontWeight: FontWeight.bold,
             ),
           ),
+<<<<<<< HEAD
           // output
           Text(
             widget.data['telp_meja'],
@@ -238,6 +239,23 @@ class _Details_mejaState extends State<Details_meja> {
             },
             child: Text("Edit"),
             style: ElevatedButton.styleFrom(
+=======
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        // Button Edit
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return Edits_meja(ListData: {},);
+              },
+            ));
+          },
+          child: Text("Edit"),
+          style: ElevatedButton.styleFrom(
+>>>>>>> 85035bf2f0f492b87410a8fe4ddd9533fa6ff419
               primary: Color(0XFF676B77),
               onPrimary: Color(0XFFFFFFFF),
               minimumSize: Size(0, 40),
